@@ -47,17 +47,14 @@ function createEmployee(salary: number | string): Teacher | Director {
   return new Director();
 }
 
-const teacher: Teacher | Director = createEmployee(400);
+function isDirector(employee: Teacher | Director): boolean {
+  return employee instanceof Director;
+}
 
-const director: Teacher | Director = createEmployee('400');
+function executeWork(employee: Teacher | Director) {
+  if (employee instanceof Director) console.log(employee.workDirectorTasks());
+  else console.log(employee.workTeacherTasks());
 
-
-console.log(createEmployee(200));
-console.log(createEmployee(1000));
-console.log(createEmployee('$500'));
-
-console.log(teacher.getCoffeeBreak());
-console.log(teacher.workFromHome());
-
-console.log(director.getCoffeeBreak());
-console.log(director.workFromHome());
+}
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
