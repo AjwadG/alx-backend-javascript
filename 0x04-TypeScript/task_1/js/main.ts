@@ -7,13 +7,15 @@ interface Teacher {
   [propName: string]: any,
 }
 
+interface Directors extends Teacher {
+  numberOfReports : number
+}
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'Doe',
-  location: 'London',
-  contract: false,
-};
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
 
-console.log(teacher3);
+const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+  return `${firstName[0]}. ${lastName}`
+}
+console.log(printTeacher('Ajwad', 'Elgandouz'));
