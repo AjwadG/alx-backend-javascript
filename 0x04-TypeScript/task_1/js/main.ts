@@ -1,4 +1,4 @@
-interface Teacher {
+export interface Teacher {
   readonly firstName: string,
   readonly lastName: string,
   fullTimeEmployee: boolean,
@@ -7,29 +7,29 @@ interface Teacher {
   [propName: string]: any,
 };
 
-interface Directors extends Teacher {
+export interface Directors extends Teacher {
   numberOfReports: number;
 };
 
-interface printTeacherFunction {
+export interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 };
 
-const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
+export const printTeacher: printTeacherFunction = (firstName: string, lastName: string): string => {
   return `${firstName[0]}. ${lastName}`;
 };
 
-interface StudentClassInerFace {
+export interface StudentClassInerFace {
   displayName(): string
   workOnHomework(): string
 }
 
-interface StudentClassConstructor {
+export interface StudentClassConstructor {
   new(firstName: string, lastName: string): StudentClassInerFace;
 }
 
 
-class StudentClass implements StudentClassInerFace, StudentClassInerFace {
+export class StudentClass implements StudentClassInerFace, StudentClassInerFace {
   firstName: string;
   lastName: string;
 
